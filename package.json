@@ -4,11 +4,15 @@
   "private": true,
   "main": "main.js",
   "devDependencies": {
+    "@eslint/js": "^9.21.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "concurrently": "^9.1.2",
     "electron": "^34.3.0",
     "electron-is-dev": "^3.0.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
     "jest": "^27.5.1",
     "wait-on": "^8.0.2"
   },
@@ -23,7 +27,8 @@
     "start": "concurrently \"npm run start-react\" \"npm run start-electron\"",
     "build-react": "react-scripts build",
     "package": "npm run build-react && electron .",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "lint": "eslint ."
   },
   "browserslist": {
     "production": [

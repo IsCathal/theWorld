@@ -88,6 +88,24 @@ This script runs the build first (if needed) and then opens Electron pointing to
 npm test
 ```
 
+**Running ESLint**
+
+You can run ESLint with the following commands:
+
+Check for Linting Errors:
+
+```bash
+npm run lint
+
+```
+Automatically Fix Issues:
+
+```bash
+npm run lint -- --fix
+
+```
+
+
 ## Project Structure
 
 A typical layout for this project might look like:
