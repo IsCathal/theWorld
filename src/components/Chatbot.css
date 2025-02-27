@@ -1,0 +1,111 @@
+/* Chatbot.css */
+
+/* 
+  Overall container for the chatbot.
+  - Uses flex layout, vertical direction
+  - A fixed height (or 100vh) so the input can stick to the bottom
+*/
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* or 100vh if you want it to fill the entire screen */
+    width: 100%;
+    max-width: 600px; /* limit width on larger screens */
+    margin: 50px auto; /* center horizontally with some top spacing */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  /* 
+    The main chat window where messages appear.
+    - Grows to fill available space
+    - Scrollable for overflow
+  */
+  .chat-window {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: #fafafa;
+  }
+  
+  /* 
+    Each individual message bubble.
+    - Slight padding and rounded corners
+    - Distinguish user vs. bot messages
+  */
+  .message {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    max-width: 70%;
+    line-height: 1.4;
+    font-size: 14px;
+  }
+  
+  /* 
+    User messages aligned to the right.
+  */
+  .message.user {
+    align-self: flex-end;
+    background-color: #daf1da;
+    margin-left: auto;
+  }
+  
+  /* 
+    Bot messages aligned to the left.
+  */
+  .message.bot {
+    align-self: flex-start;
+    background-color: #f1f0f0;
+    margin-right: auto;
+  }
+  
+  /* 
+    Input area pinned to the bottom (since .chatbot-container is flex).
+    - Contains text input and send button
+  */
+  .input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background-color: #f7f7f7;
+  }
+  
+  /* 
+    The text input.
+    - Fills remaining space
+    - Slightly rounded edges
+  */
+  .input-area input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    margin-right: 8px;
+  }
+  
+  /* 
+    The send button.
+    - Rounded edges
+    - Slight hover effect
+  */
+  .input-area button {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .input-area button:hover {
+    background-color: #45a049;
+  }
+  
