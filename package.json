@@ -4,7 +4,16 @@
   "private": true,
   "main": "main.js",
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.5",
     "@eslint/js": "^9.21.0",
+    "@storybook/addon-essentials": "^8.6.2",
+    "@storybook/addon-interactions": "^8.6.2",
+    "@storybook/addon-onboarding": "^8.6.2",
+    "@storybook/blocks": "^8.6.2",
+    "@storybook/preset-create-react-app": "^8.6.2",
+    "@storybook/react": "^8.6.2",
+    "@storybook/react-webpack5": "^8.6.2",
+    "@storybook/test": "^8.6.2",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "concurrently": "^9.1.2",
@@ -12,9 +21,13 @@
     "electron-is-dev": "^3.0.1",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-storybook": "^0.11.3",
     "globals": "^16.0.0",
     "jest": "^27.5.1",
-    "wait-on": "^8.0.2"
+    "prop-types": "^15.8.1",
+    "storybook": "^8.6.2",
+    "wait-on": "^8.0.2",
+    "webpack": "^5.98.0"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -28,7 +41,9 @@
     "build-react": "react-scripts build",
     "package": "npm run build-react && electron .",
     "test": "react-scripts test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "browserslist": {
     "production": [
@@ -40,6 +55,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
     ]
   }
 }

@@ -104,6 +104,23 @@ Automatically Fix Issues:
 npm run lint -- --fix
 
 ```
+## Storybook
+
+This project includes [Storybook](https://storybook.js.org/) to help you develop, document, and test UI components in isolation.
+
+### Setup
+
+If you haven't already set up Storybook, run the following command in your project root:
+
+```bash
+npx sb init
+```
+
+To launch the Storybook interface in your browser, run:
+
+```bash
+npm run storybook
+```
 
 
 ## Project Structure
