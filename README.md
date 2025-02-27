@@ -81,6 +81,13 @@ This script runs the build first (if needed) and then opens Electron pointing to
 
 ---
 
+**Test:**
+- **Jest:** A JavaScript testing framework that comes preconfigured with Create React App.
+
+```bash
+npm test
+```
+
 ## Project Structure
 
 A typical layout for this project might look like:
