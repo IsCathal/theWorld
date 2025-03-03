@@ -1,22 +1,27 @@
 // src/components/Chatbot.js
 import React, { useState } from 'react';
+import { runLLM } from '../llm'; // Importing runLLM from llm.ts
 import './Chatbot.css';
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input.trim()) {
       // Add user's message
       const userMessage = { sender: 'user', text: input };
-      setMessages([...messages, userMessage]);
+      setMessages(prevMessages => [...prevMessages, userMessage]);
 
-      // Simulate a bot response
-      setTimeout(() => {
-        const botMessage = { sender: 'bot', text: 'This is a response from your chatbot!' };
+      // Fetch response from LLM
+      try {
+        const botResponse = await runLLM({ userMessage: input });
+        const botMessage = { sender: 'bot', text: botResponse };
         setMessages(prevMessages => [...prevMessages, botMessage]);
-      }, 1000);
+      } catch (error) {
+        console.error('Error fetching response from LLM:', error);
+        setMessages(prevMessages => [...prevMessages, { sender: 'bot', text: 'Error getting response. Try again!' }]);
+      }
 
       setInput('');
     }
@@ -26,7 +31,6 @@ function Chatbot() {
     <div className="chatbot-container">
       {/* Main chat window */}
       <div className="chat-window">
-        {/* Optional heading or any top content */}
         <h2>Chat Window</h2>
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
@@ -35,7 +39,7 @@ function Chatbot() {
         ))}
       </div>
 
-      {/* Input area at the bottom */}
+      {/* Input area */}
       <div className="input-area">
         <input
           type="text"
